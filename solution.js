@@ -74,7 +74,7 @@ globalThis.installValidator = async c => {
 
 // Возврат: Promise массива полных Product; порядок _id ASC; [] при отсутствии.
 globalThis.searchProducts = async (c, { category, size, qty }) => {
-  throw new Error('TODO: searchProducts');
+  return c.products.find({ category: category, variants: { $elemMatch: { size: size, stock: { $gte: qty } } } }).toArray()
 };
 
 // Технический helper: верните MongoDB cursor с фильтром, сортировкой и limit.
