@@ -88,7 +88,7 @@ globalThis.historyCursor = (c, { userId, status }) => {
 globalThis.history = async (c, input) => historyCursor(c, input).toArray();
 
 // Заполните порядок полей и направления индекса для historyCursor.
-globalThis.historyIndex = null;
+globalThis.historyIndex = { userId: 1, status: 1, createdAt: -1, _id: 1 };
 // Если добавили hint в historyCursor, измените флаг на true.
 globalThis.usesHistoryHint = false;
 
