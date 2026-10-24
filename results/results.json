@@ -5,10 +5,10 @@
       "status": "passed",
       "startedAt": {
         "$date": {
-          "$numberLong": "1792853689859"
+          "$numberLong": "1792864222837"
         }
       },
-      "solutionHash": "240f8ea00094a45af1b3491eb2f26605456ded0bc8c2879aa120025f29f352f5",
+      "solutionHash": "91d01948d2eb73cabe12625b55d11c9545af331f63a34eb2b6fb25d70dd8f74c",
       "checks": [
         "validator strict/error installed",
         "validation valid",
@@ -1312,7 +1312,7 @@
       "server": "8.0.30",
       "finishedAt": {
         "$date": {
-          "$numberLong": "1792853690281"
+          "$numberLong": "1792864223093"
         }
       }
     },
@@ -1320,10 +1320,10 @@
       "status": "passed",
       "startedAt": {
         "$date": {
-          "$numberLong": "1792853690284"
+          "$numberLong": "1792864223096"
         }
       },
-      "solutionHash": "240f8ea00094a45af1b3491eb2f26605456ded0bc8c2879aa120025f29f352f5",
+      "solutionHash": "91d01948d2eb73cabe12625b55d11c9545af331f63a34eb2b6fb25d70dd8f74c",
       "checks": [
         "10000 documents",
         "only _id index initially",
@@ -1427,7 +1427,7 @@
                 "$numberInt": "20"
               },
               "executionTimeMillisEstimate": {
-                "$numberInt": "5"
+                "$numberInt": "3"
               },
               "works": {
                 "$numberInt": "10022"
@@ -1497,7 +1497,7 @@
                   "$numberInt": "1600"
                 },
                 "executionTimeMillisEstimate": {
-                  "$numberInt": "5"
+                  "$numberInt": "0"
                 },
                 "works": {
                   "$numberInt": "10001"
@@ -1550,7 +1550,7 @@
             "$db": "hw2"
           },
           "serverInfo": {
-            "host": "6598578cada6",
+            "host": "d5a25c451902",
             "port": {
               "$numberInt": "27017"
             },
@@ -1593,8 +1593,8 @@
           "$clusterTime": {
             "clusterTime": {
               "$timestamp": {
-                "t": 1792853690,
-                "i": 35
+                "t": 1792864223,
+                "i": 28
               }
             },
             "signature": {
@@ -1611,8 +1611,8 @@
           },
           "operationTime": {
             "$timestamp": {
-              "t": 1792853690,
-              "i": 35
+              "t": 1792864223,
+              "i": 28
             }
           }
         },
@@ -1898,7 +1898,7 @@
             "$db": "hw2"
           },
           "serverInfo": {
-            "host": "6598578cada6",
+            "host": "d5a25c451902",
             "port": {
               "$numberInt": "27017"
             },
@@ -1941,8 +1941,8 @@
           "$clusterTime": {
             "clusterTime": {
               "$timestamp": {
-                "t": 1792853690,
-                "i": 42
+                "t": 1792864223,
+                "i": 35
               }
             },
             "signature": {
@@ -1959,8 +1959,8 @@
           },
           "operationTime": {
             "$timestamp": {
-              "t": 1792853690,
-              "i": 42
+              "t": 1792864223,
+              "i": 35
             }
           }
         },
@@ -3031,7 +3031,7 @@
       "server": "8.0.30",
       "finishedAt": {
         "$date": {
-          "$numberLong": "1792853690803"
+          "$numberLong": "1792864223592"
         }
       }
     },
@@ -3039,10 +3039,10 @@
       "status": "passed",
       "startedAt": {
         "$date": {
-          "$numberLong": "1792853690807"
+          "$numberLong": "1792864223596"
         }
       },
-      "solutionHash": "240f8ea00094a45af1b3491eb2f26605456ded0bc8c2879aa120025f29f352f5",
+      "solutionHash": "91d01948d2eb73cabe12625b55d11c9545af331f63a34eb2b6fb25d70dd8f74c",
       "checks": [
         "second item insufficient",
         "first update modified before abort",
@@ -3069,16 +3069,16 @@
         "transactions-rollback": {
           "scenario": "rollback",
           "before": {
-            "host": "6598578cada6",
+            "host": "d5a25c451902",
             "pid": {
               "$numberLong": "1"
             },
             "uptime": {
-              "$numberInt": "72955"
+              "$numberInt": "19"
             },
             "localTime": {
               "$date": {
-                "$numberLong": "1792853690873"
+                "$numberLong": "1792864223666"
               }
             },
             "transactions": {
@@ -3089,7 +3089,7 @@
                 "$numberLong": "0"
               },
               "transactionsCollectionWriteCount": {
-                "$numberLong": "42"
+                "$numberLong": "30"
               },
               "currentActive": {
                 "$numberLong": "0"
@@ -3101,13 +3101,13 @@
                 "$numberLong": "0"
               },
               "totalAborted": {
-                "$numberLong": "9"
+                "$numberLong": "0"
               },
               "totalCommitted": {
-                "$numberLong": "4"
+                "$numberLong": "0"
               },
               "totalStarted": {
-                "$numberLong": "13"
+                "$numberLong": "0"
               },
               "totalPrepared": {
                 "$numberLong": "0"
@@ -3120,36 +3120,20 @@
               },
               "currentPrepared": {
                 "$numberLong": "0"
-              },
-              "lastCommittedTransaction": {
-                "operationCount": {
-                  "$numberLong": "0"
-                },
-                "oplogOperationBytes": {
-                  "$numberLong": "0"
-                },
-                "writeConcern": {
-                  "w": "majority",
-                  "j": true,
-                  "wtimeout": {
-                    "$numberInt": "10000"
-                  },
-                  "provenance": "clientSupplied"
-                }
               }
             }
           },
           "after": {
-            "host": "6598578cada6",
+            "host": "d5a25c451902",
             "pid": {
               "$numberLong": "1"
             },
             "uptime": {
-              "$numberInt": "72955"
+              "$numberInt": "19"
             },
             "localTime": {
               "$date": {
-                "$numberLong": "1792853690893"
+                "$numberLong": "1792864223687"
               }
             },
             "transactions": {
@@ -3160,7 +3144,7 @@
                 "$numberLong": "0"
               },
               "transactionsCollectionWriteCount": {
-                "$numberLong": "42"
+                "$numberLong": "30"
               },
               "currentActive": {
                 "$numberLong": "0"
@@ -3172,13 +3156,13 @@
                 "$numberLong": "0"
               },
               "totalAborted": {
-                "$numberLong": "10"
+                "$numberLong": "1"
               },
               "totalCommitted": {
-                "$numberLong": "4"
+                "$numberLong": "0"
               },
               "totalStarted": {
-                "$numberLong": "14"
+                "$numberLong": "1"
               },
               "totalPrepared": {
                 "$numberLong": "0"
@@ -3191,22 +3175,6 @@
               },
               "currentPrepared": {
                 "$numberLong": "0"
-              },
-              "lastCommittedTransaction": {
-                "operationCount": {
-                  "$numberLong": "0"
-                },
-                "oplogOperationBytes": {
-                  "$numberLong": "0"
-                },
-                "writeConcern": {
-                  "w": "majority",
-                  "j": true,
-                  "wtimeout": {
-                    "$numberInt": "10000"
-                  },
-                  "provenance": "clientSupplied"
-                }
               }
             }
           },
@@ -3226,16 +3194,16 @@
         "transactions-success": {
           "scenario": "success",
           "before": {
-            "host": "6598578cada6",
+            "host": "d5a25c451902",
             "pid": {
               "$numberLong": "1"
             },
             "uptime": {
-              "$numberInt": "72955"
+              "$numberInt": "19"
             },
             "localTime": {
               "$date": {
-                "$numberLong": "1792853690922"
+                "$numberLong": "1792864223712"
               }
             },
             "transactions": {
@@ -3246,7 +3214,7 @@
                 "$numberLong": "0"
               },
               "transactionsCollectionWriteCount": {
-                "$numberLong": "42"
+                "$numberLong": "30"
               },
               "currentActive": {
                 "$numberLong": "0"
@@ -3258,13 +3226,13 @@
                 "$numberLong": "0"
               },
               "totalAborted": {
-                "$numberLong": "10"
+                "$numberLong": "1"
               },
               "totalCommitted": {
-                "$numberLong": "4"
+                "$numberLong": "0"
               },
               "totalStarted": {
-                "$numberLong": "14"
+                "$numberLong": "1"
               },
               "totalPrepared": {
                 "$numberLong": "0"
@@ -3277,36 +3245,20 @@
               },
               "currentPrepared": {
                 "$numberLong": "0"
-              },
-              "lastCommittedTransaction": {
-                "operationCount": {
-                  "$numberLong": "0"
-                },
-                "oplogOperationBytes": {
-                  "$numberLong": "0"
-                },
-                "writeConcern": {
-                  "w": "majority",
-                  "j": true,
-                  "wtimeout": {
-                    "$numberInt": "10000"
-                  },
-                  "provenance": "clientSupplied"
-                }
               }
             }
           },
           "after": {
-            "host": "6598578cada6",
+            "host": "d5a25c451902",
             "pid": {
               "$numberLong": "1"
             },
             "uptime": {
-              "$numberInt": "72955"
+              "$numberInt": "19"
             },
             "localTime": {
               "$date": {
-                "$numberLong": "1792853690940"
+                "$numberLong": "1792864223735"
               }
             },
             "transactions": {
@@ -3317,7 +3269,7 @@
                 "$numberLong": "0"
               },
               "transactionsCollectionWriteCount": {
-                "$numberLong": "43"
+                "$numberLong": "31"
               },
               "currentActive": {
                 "$numberLong": "0"
@@ -3329,13 +3281,13 @@
                 "$numberLong": "0"
               },
               "totalAborted": {
-                "$numberLong": "10"
+                "$numberLong": "1"
               },
               "totalCommitted": {
-                "$numberLong": "5"
+                "$numberLong": "1"
               },
               "totalStarted": {
-                "$numberLong": "15"
+                "$numberLong": "2"
               },
               "totalPrepared": {
                 "$numberLong": "0"
@@ -3435,6 +3387,16 @@
                 },
                 "modified": {
                   "$numberInt": "1"
+                }
+              },
+              {
+                "event": "update_inside_transaction",
+                "sku": "B",
+                "matched": {
+                  "$numberInt": "0"
+                },
+                "modified": {
+                  "$numberInt": "0"
                 }
               }
             ],
@@ -3722,7 +3684,7 @@
               },
               "createdAt": {
                 "$date": {
-                  "$numberLong": "1792853690934"
+                  "$numberLong": "1792864223725"
                 }
               },
               "status": "created",
@@ -3892,7 +3854,7 @@
                   },
                   "createdAt": {
                     "$date": {
-                      "$numberLong": "1792853690934"
+                      "$numberLong": "1792864223725"
                     }
                   },
                   "status": "created",
@@ -3930,7 +3892,7 @@
               },
               "createdAt": {
                 "$date": {
-                  "$numberLong": "1792853690934"
+                  "$numberLong": "1792864223725"
                 }
               },
               "status": "created",
@@ -4100,7 +4062,7 @@
                   },
                   "createdAt": {
                     "$date": {
-                      "$numberLong": "1792853690934"
+                      "$numberLong": "1792864223725"
                     }
                   },
                   "status": "created",
@@ -4272,7 +4234,7 @@
                   },
                   "createdAt": {
                     "$date": {
-                      "$numberLong": "1792853690934"
+                      "$numberLong": "1792864223725"
                     }
                   },
                   "status": "created",
@@ -4447,7 +4409,7 @@
                   },
                   "createdAt": {
                     "$date": {
-                      "$numberLong": "1792853690934"
+                      "$numberLong": "1792864223725"
                     }
                   },
                   "status": "created",
@@ -4512,12 +4474,32 @@
             },
             {
               "event": "update_inside_transaction",
+              "sku": "B",
+              "matched": {
+                "$numberInt": "0"
+              },
+              "modified": {
+                "$numberInt": "0"
+              }
+            },
+            {
+              "event": "update_inside_transaction",
               "sku": "A",
               "matched": {
                 "$numberInt": "1"
               },
               "modified": {
                 "$numberInt": "1"
+              }
+            },
+            {
+              "event": "update_inside_transaction",
+              "sku": "NO_SUCH_SKU",
+              "matched": {
+                "$numberInt": "0"
+              },
+              "modified": {
+                "$numberInt": "0"
               }
             }
           ],
@@ -4548,7 +4530,7 @@
       "server": "8.0.30",
       "finishedAt": {
         "$date": {
-          "$numberLong": "1792853691060"
+          "$numberLong": "1792864223858"
         }
       }
     },
@@ -4556,10 +4538,10 @@
       "status": "passed",
       "startedAt": {
         "$date": {
-          "$numberLong": "1792853691065"
+          "$numberLong": "1792864223862"
         }
       },
-      "solutionHash": "240f8ea00094a45af1b3491eb2f26605456ded0bc8c2879aa120025f29f352f5",
+      "solutionHash": "91d01948d2eb73cabe12625b55d11c9545af331f63a34eb2b6fb25d70dd8f74c",
       "checks": [
         "3 data-bearing nodes ready",
         "first majority write acknowledged",
@@ -4583,7 +4565,7 @@
           "before": [
             {
               "host": "m1:27017",
-              "role": "SECONDARY"
+              "role": "PRIMARY"
             },
             {
               "host": "m2:27017",
@@ -4591,7 +4573,7 @@
             },
             {
               "host": "m3:27017",
-              "role": "PRIMARY"
+              "role": "SECONDARY"
             }
           ],
           "firstWrite": {
@@ -4614,8 +4596,8 @@
             "$clusterTime": {
               "clusterTime": {
                 "$timestamp": {
-                  "t": 1792853691,
-                  "i": 4
+                  "t": 1792864223,
+                  "i": 49
                 }
               },
               "signature": {
@@ -4632,8 +4614,8 @@
             },
             "operationTime": {
               "$timestamp": {
-                "t": 1792853691,
-                "i": 4
+                "t": 1792864223,
+                "i": 49
               }
             }
           },
@@ -4641,11 +4623,11 @@
           "after": [
             {
               "host": "m1:27017",
-              "role": "PRIMARY"
+              "role": "SECONDARY"
             },
             {
               "host": "m2:27017",
-              "role": "SECONDARY"
+              "role": "PRIMARY"
             },
             {
               "host": "m3:27017",
@@ -4693,18 +4675,18 @@
       "server": "8.0.30",
       "finishedAt": {
         "$date": {
-          "$numberLong": "1792853691171"
+          "$numberLong": "1792864223962"
         }
       }
     },
     "reset": {
-      "status": "outdated",
+      "status": "passed",
       "startedAt": {
         "$date": {
-          "$numberLong": "1792853358656"
+          "$numberLong": "1792864218081"
         }
       },
-      "solutionHash": "240f8ea00094a45af1b3491eb2f26605456ded0bc8c2879aa120025f29f352f5",
+      "solutionHash": "91d01948d2eb73cabe12625b55d11c9545af331f63a34eb2b6fb25d70dd8f74c",
       "checks": [
         "fixtures loaded"
       ],
@@ -4723,15 +4705,14 @@
       "server": "8.0.30",
       "finishedAt": {
         "$date": {
-          "$numberLong": "1792853358745"
+          "$numberLong": "1792864218178"
         }
-      },
-      "previousStatus": "passed"
+      }
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1792853691171"
+      "$numberLong": "1792864223962"
     }
   }
 }

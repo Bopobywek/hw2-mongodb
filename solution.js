@@ -196,16 +196,16 @@ globalThis.purchase = async (request, trace = () => { }) => {
         }
       );
 
-      if (r.modifiedCount !== 1) {
-        throw HWError("ITEM_UNAVAILABLE");
-      }
-
       trace({
         event: "update_inside_transaction",
         sku: item.sku,
         matched: r.matchedCount,
         modified: r.modifiedCount
       });
+
+      if (r.modifiedCount !== 1) {
+        throw HWError("ITEM_UNAVAILABLE");
+      }
 
       const product = await c.products.findOne({ _id: item.sku });
       orderItems.push({
