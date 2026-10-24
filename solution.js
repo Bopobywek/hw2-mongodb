@@ -81,9 +81,9 @@ globalThis.searchProducts = async (c, { category, size, qty }) => {
 // Один и тот же запрос используется для результата и explain в опыте с индексом.
 globalThis.historyCursor = (c, { userId, status }) => {
   return c.orders
-            .find({ userId, status })
-            .sort({ createdAt: -1, _id: 1})
-            .limit(20)
+    .find({ userId, status })
+    .sort({ createdAt: -1, _id: 1 })
+    .limit(20)
 };
 globalThis.history = async (c, input) => historyCursor(c, input).toArray();
 
@@ -102,7 +102,7 @@ globalThis.report = async (c, from, to) => {
             status: "paid",
             createdAt: { $gte: from, $lt: to }
           }
-        }, 
+        },
         {
           $unwind: "$items"
         },
@@ -120,22 +120,22 @@ globalThis.report = async (c, from, to) => {
         },
         {
           $limit: 5
-        }, 
+        },
         {
           $lookup: {
-            from: "products", 
+            from: "products",
             localField: "_id",
             foreignField: "_id",
             as: "joinedProduct"
           }
-        }, 
+        },
         {
           $unwind: "$joinedProduct"
         },
         {
           $project: {
             _id: 0,
-            sku: "$_id", 
+            sku: "$_id",
             name: "$joinedProduct.name",
             qty: 1,
             revenue: 1
@@ -159,7 +159,73 @@ globalThis.purchase = async (request, trace = () => { }) => {
     // {event:'update_inside_transaction', sku, matched:r.matchedCount,
     //  modified:r.modifiedCount}, где r — настоящий результат updateOne.
     // Это позволяет показать первое успешное изменение перед abort.
-    throw new Error('TODO: purchase');
+    const existingOrder = await c.orders.findOne({ _id: request.operationId });
+
+    if (existingOrder) {
+      const isUserEqual = existingOrder.userId === request.userId;
+      const isItemsEqual =
+        existingOrder.items.length === request.items.length &&
+        existingOrder.items.every(
+          (item, i) =>
+            item.sku === request.items[i].sku &&
+            item.size === request.items[i].size &&
+            item.qty === request.items[i].qty
+        );
+
+      if (isUserEqual && isItemsEqual) {
+        return existingOrder;
+      }
+
+      throw HWError("REQUEST_CONFLICT");
+    }
+
+    const orderItems = [];
+    for (const item of request.items) {
+      const r = await c.products.updateOne(
+        {
+          _id: item.sku,
+          variants: {
+            $elemMatch: {
+              size: item.size,
+              stock: { $gte: item.qty }
+            }
+          }
+        },
+        {
+          $inc: { "variants.$.stock": -item.qty }
+        }
+      );
+
+      if (r.modifiedCount !== 1) {
+        throw HWError("ITEM_UNAVAILABLE");
+      }
+
+      trace({
+        event: "update_inside_transaction",
+        sku: item.sku,
+        matched: r.matchedCount,
+        modified: r.modifiedCount
+      });
+
+      const product = await c.products.findOne({ _id: item.sku });
+      orderItems.push({
+        sku: item.sku,
+        size: item.size,
+        qty: item.qty,
+        price: product.price
+      });
+    }
+
+    const order = {
+      _id: request.operationId,
+      userId: request.userId,
+      createdAt: new Date(),
+      status: "created",
+      items: orderItems
+    };
+
+    await c.orders.insertOne(order);
+    return order;
   });
 };
 
@@ -168,10 +234,32 @@ globalThis.purchase = async (request, trace = () => { }) => {
 // Возврат — результат записи с acknowledged:true. Повтор вызова с тем же id
 // должен быть безопасен: оболочка опыта может повторить запись после ошибки связи.
 globalThis.writeProbe = async (c, id, message) => {
-  throw new Error('TODO: writeProbe');
+  return c.probe.updateOne(
+    {
+      _id: id
+    },
+    {
+      $set: { message: message }
+    },
+    {
+      upsert: true,
+      writeConcern: {
+        w: "majority",
+        j: true
+      }
+    }
+  );
 };
 // Возврат — документ c.probe с указанным _id либо null.
 globalThis.readProbe = async (c, id) => {
-  throw new Error('TODO: readProbe');
+  return c.probe.findOne(
+    {
+      _id: id
+    },
+    {},
+    {
+      readPreference: "primary"
+    }
+  );
 };
 
